@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block head_title %}
+| Thread | {{thread.name}}
+{% endblock head_title%}
+
+
+{% block content %}
+
+<div class="thread-header border bg-light shadow">
+    <div class='row text-center'>
+        <div class="col-sm">
+            <h1>/{{thread.name}}/</h1>
+        </div>
+    </div>
+</div>
+
+<div class='row' id='messages'>
+    Loading...
+</div>
+
+{% include "scripts/scripts.html" %}
+
+<script>
+	var url_addition = "?thread={{thread.name}}"
+
+
+    const messagesContainerElement = document.getElementById("messages")
+    loadMessages(messagesContainerElement)
+</script>
+
+{% endblock content %}
